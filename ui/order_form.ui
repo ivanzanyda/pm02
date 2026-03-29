@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OrderFormDialog</class>
+ <widget class="QDialog" name="OrderFormDialog">
+  <property name="geometry"><rect><x>0</x><y>0</y><width>800</width><height>600</height></rect></property>
+  <property name="windowTitle"><string>Создание заказа</string></property>
+  <layout class="QVBoxLayout" name="verticalLayoutMain">
+   <item>
+    <widget class="QWidget" name="frameSelectItem">
+     <layout class="QGridLayout" name="gridLayoutSelectItem">
+      <item row="0" column="0"><widget class="QLabel" name="labelMenuItem"><property name="text"><string>Позиция</string></property></widget></item>
+      <item row="0" column="1"><widget class="QComboBox" name="comboBoxMenuItem"/></item>
+      <item row="0" column="2"><widget class="QLabel" name="labelQuantity"><property name="text"><string>Количество</string></property></widget></item>
+      <item row="0" column="3"><widget class="QSpinBox" name="spinBoxQuantity"/></item>
+      <item row="0" column="4"><widget class="QPushButton" name="pushButtonAddItem"><property name="text"><string>Добавить</string></property></widget></item>
+     </layout>
+    </widget>
+   </item>
+   <item><widget class="QTableWidget" name="tableWidgetOrderItems"/></item>
+   <item>
+    <widget class="QWidget" name="frameOrderInfo">
+     <layout class="QGridLayout" name="formLayoutOrderInfo">
+      <item row="0" column="0"><widget class="QLabel" name="labelOrderType"><property name="text"><string>Тип заказа</string></property></widget></item>
+      <item row="0" column="1"><widget class="QComboBox" name="comboBoxOrderType"/></item>
+      <item row="1" column="0"><widget class="QLabel" name="labelAddress"><property name="text"><string>Адрес</string></property></widget></item>
+      <item row="1" column="1"><widget class="QLineEdit" name="lineEditDeliveryAddress"/></item>
+      <item row="2" column="0"><widget class="QLabel" name="labelComment"><property name="text"><string>Комментарий</string></property></widget></item>
+      <item row="2" column="1"><widget class="QPlainTextEdit" name="plainTextEditComment"/></item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="frameBottom">
+     <layout class="QHBoxLayout" name="horizontalLayoutBottom">
+      <item><widget class="QLabel" name="labelTotalCaption"><property name="text"><string>Итоговая сумма:</string></property></widget></item>
+      <item><widget class="QLabel" name="labelTotalAmount"><property name="text"><string>0.00 ₽</string></property></widget></item>
+      <item><spacer name="horizontalSpacer"><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+      <item><widget class="QPushButton" name="pushButtonSaveOrder"><property name="text"><string>Сохранить</string></property></widget></item>
+      <item><widget class="QPushButton" name="pushButtonCancel"><property name="text"><string>Отмена</string></property></widget></item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

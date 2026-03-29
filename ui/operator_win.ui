@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OperatorWindow</class>
+ <widget class="QMainWindow" name="OperatorWindow">
+  <property name="geometry"><rect><x>0</x><y>0</y><width>1200</width><height>760</height></rect></property>
+  <property name="windowTitle"><string>Пиццерия — Оператор</string></property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayoutMain">
+    <item>
+     <widget class="QWidget" name="frameTop">
+      <layout class="QHBoxLayout" name="horizontalLayoutTop">
+       <item><widget class="QLabel" name="labelWindowTitle"><property name="text"><string>Оператор кухни</string></property></widget></item>
+       <item><spacer name="sp1"><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+       <item><widget class="QLabel" name="labelCurrentUser"><property name="text"><string>Оператор</string></property></widget></item>
+       <item><widget class="QPushButton" name="pushButtonLogout"><property name="text"><string>Выйти</string></property></widget></item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="frameFilters">
+      <layout class="QGridLayout" name="gridLayoutFilters">
+       <item row="0" column="0"><widget class="QLabel" name="labelDateFrom"><property name="text"><string>Дата с</string></property></widget></item>
+       <item row="0" column="1"><widget class="QDateEdit" name="dateEditFrom"/></item>
+       <item row="0" column="2"><widget class="QLabel" name="labelDateTo"><property name="text"><string>Дата по</string></property></widget></item>
+       <item row="0" column="3"><widget class="QDateEdit" name="dateEditTo"/></item>
+       <item row="0" column="4"><widget class="QLabel" name="labelStatusFilter"><property name="text"><string>Статус</string></property></widget></item>
+       <item row="0" column="5"><widget class="QComboBox" name="comboBoxStatusFilter"/></item>
+       <item row="0" column="6"><widget class="QPushButton" name="pushButtonApplyFilters"><property name="text"><string>Применить</string></property></widget></item>
+       <item row="0" column="7"><widget class="QPushButton" name="pushButtonRefreshOrders"><property name="text"><string>Обновить</string></property></widget></item>
+      </layout>
+     </widget>
+    </item>
+    <item><widget class="QTableWidget" name="tableWidgetOrders"/></item>
+    <item>
+     <widget class="QWidget" name="frameStatus">
+      <layout class="QHBoxLayout" name="horizontalLayoutStatus">
+       <item><widget class="QLabel" name="labelSelectedOrder"><property name="text"><string>Выбранный заказ</string></property></widget></item>
+       <item><widget class="QLineEdit" name="lineEditSelectedOrderId"/></item>
+       <item><widget class="QLabel" name="labelNewStatus"><property name="text"><string>Новый статус</string></property></widget></item>
+       <item><widget class="QComboBox" name="comboBoxNewStatus"/></item>
+       <item><widget class="QPushButton" name="pushButtonUpdateStatus"><property name="text"><string>Изменить статус</string></property></widget></item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar"/>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

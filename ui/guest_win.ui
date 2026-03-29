@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GuestWindow</class>
+ <widget class="QMainWindow" name="GuestWindow">
+  <property name="geometry"><rect><x>0</x><y>0</y><width>1000</width><height>700</height></rect></property>
+  <property name="windowTitle"><string>Пиццерия - гость</string></property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QWidget" name="frameTop">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item><widget class="QLabel" name="labelWindowTitle"><property name="text"><string>Каталог меню</string></property></widget></item>
+       <item><spacer name="horizontalSpacer"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property></spacer></item>
+       <item><widget class="QLabel" name="labelUserCaption"><property name="text"><string>Пользователь:</string></property></widget></item>
+       <item><widget class="QLabel" name="labelCurrentUser"><property name="text"><string>Гость</string></property></widget></item>
+       <item><widget class="QPushButton" name="pushButtonBackToLogin"><property name="text"><string>К авторизации</string></property></widget></item>
+       <item><widget class="QPushButton" name="pushButtonRefreshMenu"><property name="text"><string>Обновить меню</string></property></widget></item>
+      </layout>
+     </widget>
+    </item>
+    <item><widget class="QLabel" name="labelHint"><property name="text"><string>Гость может только смотреть меню</string></property></widget></item>
+    <item>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="widgetResizable"><bool>true</bool></property>
+      <widget class="QWidget" name="scrollAreaWidgetContents"/>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar"/>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

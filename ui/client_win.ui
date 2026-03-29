@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ClientWindow</class>
+ <widget class="QMainWindow" name="ClientWindow">
+  <property name="geometry"><rect><x>0</x><y>0</y><width>1100</width><height>760</height></rect></property>
+  <property name="windowTitle"><string>Пиццерия — Клиент</string></property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayoutMain">
+    <item>
+     <widget class="QWidget" name="frameTop">
+      <layout class="QHBoxLayout" name="horizontalLayoutTop">
+       <item><widget class="QLabel" name="labelWindowTitle"><property name="text"><string>Личный кабинет клиента</string></property></widget></item>
+       <item><spacer name="sp1"><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+       <item><widget class="QLabel" name="labelUserCaption"><property name="text"><string>Клиент:</string></property></widget></item>
+       <item><widget class="QLabel" name="labelCurrentUser"><property name="text"><string>Клиент</string></property></widget></item>
+       <item><widget class="QPushButton" name="pushButtonLogout"><property name="text"><string>Выйти</string></property></widget></item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabWidgetMain">
+      <widget class="QWidget" name="tabCatalog">
+       <attribute name="title"><string>Меню</string></attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutCatalog">
+        <item>
+         <widget class="QWidget" name="frameCatalogButtons">
+          <layout class="QHBoxLayout" name="horizontalLayoutCatalogButtons">
+           <item><widget class="QPushButton" name="pushButtonRefreshMenu"><property name="text"><string>Обновить меню</string></property></widget></item>
+           <item><widget class="QPushButton" name="pushButtonCreateOrder"><property name="text"><string>Создать заказ</string></property></widget></item>
+           <item><widget class="QPushButton" name="pushButtonAddComment"><property name="text"><string>Комментарий к заказу</string></property></widget></item>
+           <item><spacer name="sp2"><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QScrollArea" name="scrollAreaCatalog">
+          <property name="widgetResizable"><bool>true</bool></property>
+          <widget class="QWidget" name="scrollAreaWidgetContentsCatalog"/>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabOrders">
+       <attribute name="title"><string>Мои заказы</string></attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutOrders">
+        <item>
+         <widget class="QWidget" name="frameOrdersTop">
+          <layout class="QHBoxLayout" name="horizontalLayoutOrdersTop">
+           <item><widget class="QLabel" name="labelOrdersStatus"><property name="text"><string>Статус:</string></property></widget></item>
+           <item><widget class="QComboBox" name="comboBoxOrderStatusFilter"/></item>
+           <item><widget class="QPushButton" name="pushButtonRefreshOrders"><property name="text"><string>Обновить</string></property></widget></item>
+           <item><widget class="QPushButton" name="pushButtonDeleteOrder"><property name="text"><string>Удалить заказ</string></property></widget></item>
+           <item><spacer name="sp3"><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+           <item><widget class="QLabel" name="labelDeleteHint"><property name="text"><string>Удаление только для нового заказа</string></property></widget></item>
+          </layout>
+         </widget>
+        </item>
+        <item><widget class="QTableWidget" name="tableWidgetOrders"/></item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabReviews">
+       <attribute name="title"><string>Отзывы</string></attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutReviews">
+        <item>
+         <widget class="QWidget" name="frameReviewActions">
+          <layout class="QHBoxLayout" name="horizontalLayoutReviewActions">
+           <item><widget class="QPushButton" name="pushButtonNewReview"><property name="text"><string>Оставить отзыв</string></property></widget></item>
+           <item><widget class="QPushButton" name="pushButtonAskQuestion"><property name="text"><string>Задать вопрос</string></property></widget></item>
+           <item><widget class="QPushButton" name="pushButtonRefreshReviews"><property name="text"><string>Обновить</string></property></widget></item>
+           <item><spacer name="sp4"><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+          </layout>
+         </widget>
+        </item>
+        <item><widget class="QTableWidget" name="tableWidgetReviews"/></item>
+        <item><widget class="QPlainTextEdit" name="plainTextEditQuestionPreview"/></item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar"/>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

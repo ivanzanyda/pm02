@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PizzaFormDialog</class>
+ <widget class="QDialog" name="PizzaFormDialog">
+  <property name="geometry"><rect><x>0</x><y>0</y><width>520</width><height>420</height></rect></property>
+  <property name="windowTitle"><string>Позиция меню</string></property>
+  <layout class="QVBoxLayout" name="verticalLayoutMain">
+   <item>
+    <widget class="QWidget" name="formWidget">
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0"><widget class="QLabel" name="labelName"><property name="text"><string>Название</string></property></widget></item>
+      <item row="0" column="1" colspan="2"><widget class="QLineEdit" name="lineEditName"/></item>
+      <item row="1" column="0"><widget class="QLabel" name="labelPrice"><property name="text"><string>Цена</string></property></widget></item>
+      <item row="1" column="1" colspan="2"><widget class="QDoubleSpinBox" name="doubleSpinBoxPrice"/></item>
+      <item row="2" column="0"><widget class="QLabel" name="labelCategory"><property name="text"><string>Категория</string></property></widget></item>
+      <item row="2" column="1" colspan="2"><widget class="QComboBox" name="comboBoxCategory"/></item>
+      <item row="3" column="0"><widget class="QLabel" name="labelOffer"><property name="text"><string>Акция</string></property></widget></item>
+      <item row="3" column="1" colspan="2"><widget class="QComboBox" name="comboBoxOffer"/></item>
+      <item row="4" column="0"><widget class="QLabel" name="labelImage"><property name="text"><string>Картинка</string></property></widget></item>
+      <item row="4" column="1"><widget class="QLineEdit" name="lineEditImage"/></item>
+      <item row="4" column="2"><widget class="QPushButton" name="pushButtonBrowseImage"><property name="text"><string>Обзор</string></property></widget></item>
+     </layout>
+    </widget>
+   </item>
+   <item><widget class="QLabel" name="labelDescription"><property name="text"><string>Описание</string></property></widget></item>
+   <item><widget class="QPlainTextEdit" name="plainTextEditDescription"/></item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayoutButtons">
+     <item><spacer name="horizontalSpacer"><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+     <item><widget class="QPushButton" name="pushButtonSave"><property name="text"><string>Сохранить</string></property></widget></item>
+     <item><widget class="QPushButton" name="pushButtonCancel"><property name="text"><string>Отмена</string></property></widget></item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

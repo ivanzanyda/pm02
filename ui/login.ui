@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LoginWindow</class>
+ <widget class="QMainWindow" name="LoginWindow">
+  <property name="geometry"><rect><x>0</x><y>0</y><width>420</width><height>240</height></rect></property>
+  <property name="windowTitle"><string>Авторизация</string></property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item><widget class="QLabel" name="label"><property name="text"><string>Пиццерия - авторизация</string></property></widget></item>
+    <item><widget class="QLineEdit" name="lineEditLogin"><property name="placeholderText"><string>Логин</string></property></widget></item>
+    <item><widget class="QLineEdit" name="lineEditPassword"><property name="echoMode"><enum>QLineEdit::Password</enum></property><property name="placeholderText"><string>Пароль</string></property></widget></item>
+    <item><widget class="QLabel" name="labelStatus"><property name="text"><string/></property></widget></item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayoutButtons">
+      <item><widget class="QPushButton" name="pushButtonLogin"><property name="text"><string>Войти</string></property></widget></item>
+      <item><widget class="QPushButton" name="pushButtonGuest"><property name="text"><string>Войти как гость</string></property></widget></item>
+      <item><widget class="QPushButton" name="pushButtonExit"><property name="text"><string>Выход</string></property></widget></item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar"/>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

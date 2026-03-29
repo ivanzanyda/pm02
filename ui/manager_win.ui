@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ManagerWindow</class>
+ <widget class="QMainWindow" name="ManagerWindow">
+  <property name="geometry"><rect><x>0</x><y>0</y><width>1200</width><height>760</height></rect></property>
+  <property name="windowTitle"><string>Пиццерия — Менеджер</string></property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayoutMain">
+    <item>
+     <widget class="QWidget" name="frameTop">
+      <layout class="QHBoxLayout" name="horizontalLayoutTop">
+       <item><widget class="QLabel" name="labelWindowTitle"><property name="text"><string>Рабочее место менеджера</string></property></widget></item>
+       <item><spacer name="sp1"><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+       <item><widget class="QLabel" name="labelCurrentUser"><property name="text"><string>Менеджер</string></property></widget></item>
+       <item><widget class="QPushButton" name="pushButtonLogout"><property name="text"><string>Выйти</string></property></widget></item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabWidgetMain">
+      <widget class="QWidget" name="tabCatalog">
+       <attribute name="title"><string>Ассортимент</string></attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutCatalog">
+        <item>
+         <widget class="QWidget" name="frameCatalogActions">
+          <layout class="QHBoxLayout" name="horizontalLayoutCatalogActions">
+           <item><widget class="QPushButton" name="pushButtonRefreshMenu"><property name="text"><string>Обновить меню</string></property></widget></item>
+           <item><widget class="QPushButton" name="pushButtonAddPizza"><property name="text"><string>Добавить</string></property></widget></item>
+           <item><widget class="QPushButton" name="pushButtonEditPizza"><property name="text"><string>Редактировать</string></property></widget></item>
+           <item><widget class="QPushButton" name="pushButtonDeletePizza"><property name="text"><string>Удалить</string></property></widget></item>
+           <item><widget class="QPushButton" name="pushButtonChangePrice"><property name="text"><string>Изменить цену</string></property></widget></item>
+           <item><spacer name="sp2"><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QScrollArea" name="scrollAreaCatalog">
+          <property name="widgetResizable"><bool>true</bool></property>
+          <widget class="QWidget" name="scrollAreaWidgetContentsCatalog"/>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabOffers">
+       <attribute name="title"><string>Акции</string></attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutOffers">
+        <item>
+         <widget class="QWidget" name="frameOffersButtons">
+          <layout class="QHBoxLayout" name="horizontalLayoutOffersButtons">
+           <item><widget class="QPushButton" name="pushButtonRefreshOffers"><property name="text"><string>Обновить</string></property></widget></item>
+           <item><widget class="QPushButton" name="pushButtonAddOffer"><property name="text"><string>Добавить</string></property></widget></item>
+           <item><widget class="QPushButton" name="pushButtonEditOffer"><property name="text"><string>Редактировать</string></property></widget></item>
+           <item><widget class="QPushButton" name="pushButtonDeleteOffer"><property name="text"><string>Удалить</string></property></widget></item>
+           <item><spacer name="sp3"><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+          </layout>
+         </widget>
+        </item>
+        <item><widget class="QTableWidget" name="tableWidgetOffers"/></item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar"/>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
