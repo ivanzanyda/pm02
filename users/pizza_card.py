@@ -8,8 +8,8 @@ from PyQt6.QtWidgets import QFrame, QLabel, QHBoxLayout
 class PizzaCard(QFrame):
     clicked = pyqtSignal(int)
 
-    def __init__(self, item, images_dir, parent=None):
-        super().__init__(parent)
+    def __init__(self, item, images_dir):
+        super().__init__()
 
         self.item_id = item["item_id"]
 
