@@ -5,8 +5,8 @@ from ui.review_form import Ui_ReviewFormDialog
 
 
 class ReviewFormDialog(QDialog, Ui_ReviewFormDialog):
-    def __init__(self, user_id, parent=None):
-        super().__init__(parent)
+    def __init__(self, user_id):
+        super().__init__()
         self.setupUi(self)
 
         self.user_id = user_id

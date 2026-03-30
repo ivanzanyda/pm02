@@ -6,8 +6,8 @@ from ui.offer_form import Ui_OfferFormDialog
 
 
 class OfferFormDialog(QDialog, Ui_OfferFormDialog):
-    def __init__(self, offer_id=None, parent=None):
-        super().__init__(parent)
+    def __init__(self, offer_id=None):
+        super().__init__()
         self.setupUi(self)
 
         self.offer_id = offer_id

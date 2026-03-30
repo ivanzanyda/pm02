@@ -5,8 +5,8 @@ from ui.order_form import Ui_OrderFormDialog
 
 
 class OrderFormDialog(QDialog, Ui_OrderFormDialog):
-    def __init__(self, user_id, parent=None):
-        super().__init__(parent)
+    def __init__(self, user_id):
+        super().__init__()
         self.setupUi(self)
 
         self.user_id = user_id

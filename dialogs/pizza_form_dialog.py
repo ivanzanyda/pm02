@@ -7,8 +7,8 @@ from ui.pizza_form import Ui_PizzaFormDialog
 
 
 class PizzaFormDialog(QDialog, Ui_PizzaFormDialog):
-    def __init__(self, item_id=None, parent=None):
-        super().__init__(parent)
+    def __init__(self, item_id=None):
+        super().__init__()
         self.setupUi(self)
 
         self.item_id = item_id

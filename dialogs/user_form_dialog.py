@@ -5,8 +5,8 @@ from ui.user_form import Ui_UserFormDialog
 
 
 class UserFormDialog(QDialog, Ui_UserFormDialog):
-    def __init__(self, user_id=None, parent=None):
-        super().__init__(parent)
+    def __init__(self, user_id=None):
+        super().__init__()
         self.setupUi(self)
 
         self.user_id = user_id
