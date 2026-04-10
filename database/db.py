@@ -52,12 +52,15 @@ SELECT
     menu_items.category,
     menu_items.image,
     menu_items.offer_id,
-    special_offers.discount_percentage,
+    CASE
+        WHEN special_offers.offer_id IS NOT NULL
+             AND CURDATE() BETWEEN special_offers.valid_from AND special_offers.valid_to
+        THEN special_offers.discount_percentage
+        ELSE NULL
+    END AS discount_percentage,
     special_offers.name AS offer_name
 FROM menu_items
-LEFT JOIN special_offers
-    ON special_offers.offer_id = menu_items.offer_id
-   AND CURDATE() BETWEEN special_offers.valid_from AND special_offers.valid_to
+LEFT JOIN special_offers ON special_offers.offer_id = menu_items.offer_id
 ORDER BY menu_items.item_id
 """)
             return cursor.fetchall()
@@ -78,12 +81,15 @@ SELECT
     menu_items.category,
     menu_items.image,
     menu_items.offer_id,
-    special_offers.discount_percentage,
+    CASE
+        WHEN special_offers.offer_id IS NOT NULL
+             AND CURDATE() BETWEEN special_offers.valid_from AND special_offers.valid_to
+        THEN special_offers.discount_percentage
+        ELSE NULL
+    END AS discount_percentage,
     special_offers.name AS offer_name
 FROM menu_items
-LEFT JOIN special_offers
-    ON special_offers.offer_id = menu_items.offer_id
-   AND CURDATE() BETWEEN special_offers.valid_from AND special_offers.valid_to
+LEFT JOIN special_offers ON special_offers.offer_id = menu_items.offer_id
 WHERE menu_items.item_id = %s
 """, (item_id,))
             return cursor.fetchone()
