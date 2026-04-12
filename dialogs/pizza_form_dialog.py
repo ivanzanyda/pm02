@@ -1,5 +1,4 @@
 from PyQt6.QtWidgets import QDialog, QFileDialog, QMessageBox
-from PyQt6.QtCore import QDate
 import os
 
 from database.db import all_categories, all_offers, one_menu_item, add_menu_item, edit_menu_item

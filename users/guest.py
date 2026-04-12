@@ -20,30 +20,17 @@ class guest_window(QMainWindow, Ui_GuestWindow):
 
         self.cards_widget = QWidget()
         self.cards_layout = QVBoxLayout(self.cards_widget)
-        self.cards_layout.setContentsMargins(10, 10, 10, 10)
-        self.cards_layout.setSpacing(10)
         self.scrollArea.setWidget(self.cards_widget)
-        self.scrollArea.setWidgetResizable(True)
 
         self.load_menu()
 
-    def clear_cards(self):
-        while self.cards_layout.count():
-            item = self.cards_layout.takeAt(0)
-            widget = item.widget()
-            if widget:
-                widget.deleteLater()
-
     def load_menu(self):
         self.items = all_menu_items()
-        self.clear_cards()
 
         for item in self.items:
             card = PizzaCard(item, self.images_dir)
             card.clicked.connect(self.show_item_info)
             self.cards_layout.addWidget(card)
-
-        self.cards_layout.addStretch()
         self.statusbar.showMessage(f'Загружено позиций: {len(self.items)}')
 
     def show_item_info(self, item_id):
@@ -60,7 +47,7 @@ class guest_window(QMainWindow, Ui_GuestWindow):
         if item.get('discount_percentage'):
             text += f"\n\nСкидка: {float(item['discount_percentage']):g}%"
 
-        QMessageBox.information(self, 'Позиция меню', text)
+        QMessageBox.information(self, item.get('name'), text)
 
     def back_to_login(self):
         from auth.auth import login_window

@@ -69,13 +69,6 @@ class admin_window(QMainWindow, Ui_AdminWindow):
         self.load_analytics()
         self.load_roles_table()
 
-    def clear_cards(self):
-        while self.cards_layout.count():
-            item = self.cards_layout.takeAt(0)
-            widget = item.widget()
-            if widget:
-                widget.deleteLater()
-
     # users
     def load_users(self):
         rows = all_users()
@@ -96,7 +89,7 @@ class admin_window(QMainWindow, Ui_AdminWindow):
         return int(item.text()) if item else None
 
     def add_user_dialog(self):
-        dialog = UserFormDialog(parent=self)
+        dialog = UserFormDialog()
         if dialog.exec():
             self.load_users()
 
@@ -105,7 +98,7 @@ class admin_window(QMainWindow, Ui_AdminWindow):
         if not user_id:
             QMessageBox.warning(self, 'Ошибка', 'Выберите пользователя')
             return
-        dialog = UserFormDialog(user_id, self)
+        dialog = UserFormDialog(user_id)
         if dialog.exec():
             self.load_users()
 
@@ -119,7 +112,6 @@ class admin_window(QMainWindow, Ui_AdminWindow):
 
     # menu
     def load_menu(self):
-        self.clear_cards()
         for item in all_menu_items():
             card = PizzaCard(item, self.images_dir)
             card.clicked.connect(self.select_item)
@@ -133,7 +125,7 @@ class admin_window(QMainWindow, Ui_AdminWindow):
             self.statusbar.showMessage(f"Выбрана позиция: {item['name']}")
 
     def add_pizza_dialog(self):
-        dialog = PizzaFormDialog(parent=self)
+        dialog = PizzaFormDialog()
         if dialog.exec():
             self.load_menu()
 
@@ -141,7 +133,7 @@ class admin_window(QMainWindow, Ui_AdminWindow):
         if not self.selected_item_id:
             QMessageBox.warning(self, 'Ошибка', 'Выберите карточку')
             return
-        dialog = PizzaFormDialog(self.selected_item_id, self)
+        dialog = PizzaFormDialog(self.selected_item_id)
         if dialog.exec():
             self.load_menu()
 
@@ -220,7 +212,8 @@ class admin_window(QMainWindow, Ui_AdminWindow):
         if row < 0:
             return None
         item = self.tableWidgetRoles.item(row, 0)
-        return int(item.text()) if item else None
+        
+        return int(item.text()) if item else None 
 
     def add_role_dialog(self):
         text, ok = QInputDialog.getText(self, 'Роль', 'Название роли:')
