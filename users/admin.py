@@ -120,6 +120,18 @@ class admin_window(QMainWindow, Ui_AdminWindow):
             self.cards_layout.addWidget(card)
         self.statusbar.showMessage(f'Загружено позиций: {len(self.items)}')
 
+    def show_item_info(self, item_id):
+        item = one_menu_item(item_id)
+        if not item:
+            return
+        text = (
+            f"Название: {item['name']}\n"
+            f"Категория: {item['category']}\n"
+            f"Цена: {float(item['price']):.2f} ₽\n\n"
+            f"Описание:\n{item['description'] or 'Нет описания'}"
+        )
+        QMessageBox.information(self, 'Позиция меню', text)
+
     def select_item(self, item_id):
         self.selected_item_id = item_id
         item = one_menu_item(item_id)
