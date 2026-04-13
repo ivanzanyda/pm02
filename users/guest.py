@@ -4,7 +4,7 @@ from PyQt6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QMessageBox
 
 from database.db import all_menu_items, one_menu_item
 from ui.guest_win import Ui_GuestWindow
-from users.pizza_card import PizzaCard
+from users.pizza_card import pizza_card
 
 
 class guest_window(QMainWindow, Ui_GuestWindow):
@@ -28,7 +28,7 @@ class guest_window(QMainWindow, Ui_GuestWindow):
         self.items = all_menu_items()
 
         for item in self.items:
-            card = PizzaCard(item, self.images_dir)
+            card = pizza_card(item, self.images_dir)
             card.clicked.connect(self.show_item_info)
             self.cards_layout.addWidget(card)
         self.statusbar.showMessage(f'Загружено позиций: {len(self.items)}')

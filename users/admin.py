@@ -12,7 +12,7 @@ from database.db import (
 from dialogs.pizza_form_dialog import PizzaFormDialog
 from dialogs.user_form_dialog import UserFormDialog
 from ui.admin_win import Ui_AdminWindow
-from users.pizza_card import PizzaCard
+from users.pizza_card import pizza_card
 
 
 class admin_window(QMainWindow, Ui_AdminWindow):
@@ -112,11 +112,13 @@ class admin_window(QMainWindow, Ui_AdminWindow):
 
     # menu
     def load_menu(self):
-        for item in all_menu_items():
-            card = PizzaCard(item, self.images_dir)
-            card.clicked.connect(self.select_item)
+        self.items = all_menu_items()
+
+        for item in self.items:
+            card = pizza_card(item, self.images_dir)
+            card.clicked.connect(self.show_item_info)
             self.cards_layout.addWidget(card)
-        self.cards_layout.addStretch()
+        self.statusbar.showMessage(f'Загружено позиций: {len(self.items)}')
 
     def select_item(self, item_id):
         self.selected_item_id = item_id

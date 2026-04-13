@@ -6,7 +6,7 @@ from database.db import all_menu_items, one_menu_item, delete_menu_item, edit_me
 from dialogs.offer_form_dialog import OfferFormDialog
 from dialogs.pizza_form_dialog import PizzaFormDialog
 from ui.manager_win import Ui_ManagerWindow
-from users.pizza_card import PizzaCard
+from users.pizza_card import pizza_card
 
 
 class manager_window(QMainWindow, Ui_ManagerWindow):

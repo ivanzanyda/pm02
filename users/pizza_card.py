@@ -1,37 +1,35 @@
 from pathlib import Path
-
-from PyQt6.QtCore import Qt, pyqtSignal
+from PyQt6.QtWidgets import QFrame,QLabel,QHBoxLayout
+from PyQt6.QtCore import Qt,pyqtSignal
 from PyQt6.QtGui import QPixmap
-from PyQt6.QtWidgets import QFrame, QLabel, QHBoxLayout
 
-
-class PizzaCard(QFrame):
+class pizza_card(QFrame):
     clicked = pyqtSignal(int)
 
-    def __init__(self, item, images_dir):
+    def __init__(self, item,path_dir):
         super().__init__()
 
-        self.item_id = item["item_id"]
+        self.item_id = item['item_id']
 
         self.setFrameShape(QFrame.Shape.Box)
         self.setMinimumHeight(170)
 
         layout = QHBoxLayout(self)
 
-        labelImage = QLabel()
-        labelImage.setFixedSize(170, 140)
-        labelImage.setFrameShape(QFrame.Shape.Box)
-        labelImage.setScaledContents(True)
+        label_image = QLabel()
+        label_image.setFrameShape(QFrame.Shape.Box)
+        label_image.setFixedSize(170,170)
+        label_image.setScaledContents(True)
 
-        image_name = item.get("image") or ""
-        image_path = Path(images_dir) / image_name if image_name else None
+        image_name = item.get('name')
+        image_path = Path(path_dir) / image_name
 
         if image_path:
-            labelImage.setPixmap(QPixmap(str(image_path)))
+            label_image.setPixmap(QPixmap(str(image_path)))
         else:
-            labelImage.setText("Нет фото")
+            label_image.setText('Нет фото')
 
-        labelInfo = QLabel()
+        label_info = QLabel()
 
         category = item.get("category", "")
         name = item.get("name", "")
@@ -50,22 +48,24 @@ class PizzaCard(QFrame):
         else:
             price_text = f"Цена: <b>{price:.2f} ₽</b>"
             discount_text = "Скидки\nнет"
-
-        labelInfo.setText(
+        
+        label_info.setText(
             f"{category} | {name}<br>"
-            f"Описание: {description}<br>"
+            f"описание: {description}<br>"
             f"{price_text}"
         )
 
-        labelDiscount = QLabel(discount_text)
-        labelDiscount.setFixedWidth(100)
-        labelDiscount.setFrameShape(QFrame.Shape.Box)
-        labelDiscount.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        label_discount = QLabel(discount_text)
+        label_discount.setFrameShape(QFrame.Shape.Box)
+        label_discount.setMaximumSize(50,50)
+        label_discount.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        layout.addWidget(labelImage)
-        layout.addWidget(labelInfo, 1)
-        layout.addWidget(labelDiscount)
+        layout.addWidget(label_image)
+        layout.addWidget(label_info)
+        layout.addWidget(label_discount)
 
     def mousePressEvent(self, event):
         self.clicked.emit(self.item_id)
         super().mousePressEvent(event)
+
+        

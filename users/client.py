@@ -6,7 +6,7 @@ from database.db import all_menu_items, one_menu_item, orders_by_user, one_order
 from dialogs.order_form_dialog import OrderFormDialog
 from dialogs.review_form_dialog import ReviewFormDialog
 from ui.client_win import Ui_ClientWindow
-from users.pizza_card import PizzaCard
+from users.pizza_card import pizza_card
 
 
 class client_window(QMainWindow, Ui_ClientWindow):
@@ -53,12 +53,13 @@ class client_window(QMainWindow, Ui_ClientWindow):
                 widget.deleteLater()
 
     def load_menu(self):
-        self.clear_cards()
-        for item in all_menu_items():
-            card = PizzaCard(item, self.images_dir)
+        self.items = all_menu_items()
+
+        for item in self.items:
+            card = pizza_card(item, self.images_dir)
             card.clicked.connect(self.show_item_info)
             self.cards_layout.addWidget(card)
-        self.cards_layout.addStretch()
+        self.statusbar.showMessage(f'Загружено позиций: {len(self.items)}')
 
     def show_item_info(self, item_id):
         item = one_menu_item(item_id)
